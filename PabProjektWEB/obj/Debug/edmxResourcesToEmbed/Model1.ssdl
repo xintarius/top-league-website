@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="zadaniepabAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Drużyna">
+    <Key>
+      <PropertyRef Name="Drużyna_ID" />
+    </Key>
+    <Property Name="Drużyna_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Trener_ID" Type="int" />
+    <Property Name="Drużyna" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Entity_9">
+    <Key>
+      <PropertyRef Name="tabela_ID" />
+    </Key>
+    <Property Name="tabela_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Zawodnik_ID" Type="int" />
+    <Property Name="Zdarzenia_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Mecz">
+    <Key>
+      <PropertyRef Name="Mecz_ID" />
+    </Key>
+    <Property Name="Mecz_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Treminarz_ID" Type="int" />
+    <Property Name="Drużyna_ID" Type="int" />
+    <Property Name="Miejsca_ID" Type="int" />
+    <Property Name="Dru_Drużyna_ID" Type="int" />
+    <Property Name="Wynik" Type="varchar(max)" />
+    <Property Name="Zdarzenia_ID" Type="int" />
+    <Property Name="Wynik1" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Miejsca">
+    <Key>
+      <PropertyRef Name="Miejsca_ID" />
+    </Key>
+    <Property Name="Miejsca_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Miejscowość" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Przynależność">
+    <Key>
+      <PropertyRef Name="Przy_ID" />
+    </Key>
+    <Property Name="Przy_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Drużyna_ID" Type="int" />
+    <Property Name="Zawodnik_ID" Type="int" />
+    <Property Name="Od_kiedy" Type="datetime" Nullable="false" />
+    <Property Name="Do_kiedy" Type="datetime" Nullable="false" />
+    <Property Name="Pozycja" Type="text" />
+    <Property Name="Stawka" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Terminarz">
+    <Key>
+      <PropertyRef Name="Treminarz_ID" />
+    </Key>
+    <Property Name="Treminarz_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trener">
+    <Key>
+      <PropertyRef Name="Trener_ID" />
+    </Key>
+    <Property Name="Trener_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Trener_Imię" Type="text" Nullable="false" />
+    <Property Name="Trener_Nazwisko" Type="text" Nullable="false" />
+    <Property Name="Trener_Drużyna" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zawodnik">
+    <Key>
+      <PropertyRef Name="Zawodnik_ID" />
+    </Key>
+    <Property Name="Zawodnik_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Zawodnik_Imię" Type="varchar(max)" Nullable="false" />
+    <Property Name="Zawodnik_Nazwisko" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zdarzenia">
+    <Key>
+      <PropertyRef Name="Zdarzenia_ID" />
+    </Key>
+    <Property Name="Zdarzenia_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mecz_ID" Type="int" />
+    <Property Name="Wejścia_na_boisko" Type="varchar(max)" Nullable="false" />
+    <Property Name="Zejścia_z_boiska" Type="varchar(max)" Nullable="false" />
+    <Property Name="Rzut_rożny" Type="varchar(max)" Nullable="false" />
+    <Property Name="Strzelone_bramki" Type="varchar(max)" />
+    <Property Name="Kary" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_DRUŻYNA_RELATIONS_TRENER">
+    <End Role="Trener" Type="Self.Trener" Multiplicity="0..1" />
+    <End Role="Drużyna" Type="Self.Drużyna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trener">
+        <PropertyRef Name="Trener_ID" />
+      </Principal>
+      <Dependent Role="Drużyna">
+        <PropertyRef Name="Trener_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTITY_9_RELATIONS_ZAWODNIK">
+    <End Role="Zawodnik" Type="Self.Zawodnik" Multiplicity="0..1" />
+    <End Role="Entity_9" Type="Self.Entity_9" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnik">
+        <PropertyRef Name="Zawodnik_ID" />
+      </Principal>
+      <Dependent Role="Entity_9">
+        <PropertyRef Name="Zawodnik_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ENTITY_9_RELATIONS_ZDARZENI">
+    <End Role="Zdarzenia" Type="Self.Zdarzenia" Multiplicity="0..1" />
+    <End Role="Entity_9" Type="Self.Entity_9" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zdarzenia">
+        <PropertyRef Name="Zdarzenia_ID" />
+      </Principal>
+      <Dependent Role="Entity_9">
+        <PropertyRef Name="Zdarzenia_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MECZ_GOSPODARZ_DRUŻYNA">
+    <End Role="Drużyna" Type="Self.Drużyna" Multiplicity="0..1" />
+    <End Role="Mecz" Type="Self.Mecz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drużyna">
+        <PropertyRef Name="Drużyna_ID" />
+      </Principal>
+      <Dependent Role="Mecz">
+        <PropertyRef Name="Drużyna_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MECZ_GOŚCIE_DRUŻYNA">
+    <End Role="Drużyna" Type="Self.Drużyna" Multiplicity="0..1" />
+    <End Role="Mecz" Type="Self.Mecz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drużyna">
+        <PropertyRef Name="Drużyna_ID" />
+      </Principal>
+      <Dependent Role="Mecz">
+        <PropertyRef Name="Dru_Drużyna_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MECZ_RELATIONS_MIEJSCA">
+    <End Role="Miejsca" Type="Self.Miejsca" Multiplicity="0..1" />
+    <End Role="Mecz" Type="Self.Mecz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Miejsca">
+        <PropertyRef Name="Miejsca_ID" />
+      </Principal>
+      <Dependent Role="Mecz">
+        <PropertyRef Name="Miejsca_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MECZ_RELATIONS_TERMINAR">
+    <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="0..1" />
+    <End Role="Mecz" Type="Self.Mecz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Terminarz">
+        <PropertyRef Name="Treminarz_ID" />
+      </Principal>
+      <Dependent Role="Mecz">
+        <PropertyRef Name="Treminarz_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRZYNALE_RELATIONS_DRUŻYNA">
+    <End Role="Drużyna" Type="Self.Drużyna" Multiplicity="0..1" />
+    <End Role="Przynależność" Type="Self.Przynależność" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drużyna">
+        <PropertyRef Name="Drużyna_ID" />
+      </Principal>
+      <Dependent Role="Przynależność">
+        <PropertyRef Name="Drużyna_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRZYNALE_RELATIONS_ZAWODNIK">
+    <End Role="Zawodnik" Type="Self.Zawodnik" Multiplicity="0..1" />
+    <End Role="Przynależność" Type="Self.Przynależność" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zawodnik">
+        <PropertyRef Name="Zawodnik_ID" />
+      </Principal>
+      <Dependent Role="Przynależność">
+        <PropertyRef Name="Zawodnik_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZDARZENI_RELATIONS_MECZ">
+    <End Role="Mecz" Type="Self.Mecz" Multiplicity="0..1" />
+    <End Role="Zdarzenia" Type="Self.Zdarzenia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mecz">
+        <PropertyRef Name="Mecz_ID" />
+      </Principal>
+      <Dependent Role="Zdarzenia">
+        <PropertyRef Name="Mecz_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="zadaniepabAModelStoreContainer">
+    <EntitySet Name="Drużyna" EntityType="Self.Drużyna" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Entity_9" EntityType="Self.Entity_9" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mecz" EntityType="Self.Mecz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Miejsca" EntityType="Self.Miejsca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Przynależność" EntityType="Self.Przynależność" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Terminarz" EntityType="Self.Terminarz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trener" EntityType="Self.Trener" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zawodnik" EntityType="Self.Zawodnik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zdarzenia" EntityType="Self.Zdarzenia" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DRUŻYNA_RELATIONS_TRENER" Association="Self.FK_DRUŻYNA_RELATIONS_TRENER">
+      <End Role="Trener" EntitySet="Trener" />
+      <End Role="Drużyna" EntitySet="Drużyna" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTITY_9_RELATIONS_ZAWODNIK" Association="Self.FK_ENTITY_9_RELATIONS_ZAWODNIK">
+      <End Role="Zawodnik" EntitySet="Zawodnik" />
+      <End Role="Entity_9" EntitySet="Entity_9" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ENTITY_9_RELATIONS_ZDARZENI" Association="Self.FK_ENTITY_9_RELATIONS_ZDARZENI">
+      <End Role="Zdarzenia" EntitySet="Zdarzenia" />
+      <End Role="Entity_9" EntitySet="Entity_9" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MECZ_GOSPODARZ_DRUŻYNA" Association="Self.FK_MECZ_GOSPODARZ_DRUŻYNA">
+      <End Role="Drużyna" EntitySet="Drużyna" />
+      <End Role="Mecz" EntitySet="Mecz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MECZ_GOŚCIE_DRUŻYNA" Association="Self.FK_MECZ_GOŚCIE_DRUŻYNA">
+      <End Role="Drużyna" EntitySet="Drużyna" />
+      <End Role="Mecz" EntitySet="Mecz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MECZ_RELATIONS_MIEJSCA" Association="Self.FK_MECZ_RELATIONS_MIEJSCA">
+      <End Role="Miejsca" EntitySet="Miejsca" />
+      <End Role="Mecz" EntitySet="Mecz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MECZ_RELATIONS_TERMINAR" Association="Self.FK_MECZ_RELATIONS_TERMINAR">
+      <End Role="Terminarz" EntitySet="Terminarz" />
+      <End Role="Mecz" EntitySet="Mecz" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRZYNALE_RELATIONS_DRUŻYNA" Association="Self.FK_PRZYNALE_RELATIONS_DRUŻYNA">
+      <End Role="Drużyna" EntitySet="Drużyna" />
+      <End Role="Przynależność" EntitySet="Przynależność" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRZYNALE_RELATIONS_ZAWODNIK" Association="Self.FK_PRZYNALE_RELATIONS_ZAWODNIK">
+      <End Role="Zawodnik" EntitySet="Zawodnik" />
+      <End Role="Przynależność" EntitySet="Przynależność" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZDARZENI_RELATIONS_MECZ" Association="Self.FK_ZDARZENI_RELATIONS_MECZ">
+      <End Role="Mecz" EntitySet="Mecz" />
+      <End Role="Zdarzenia" EntitySet="Zdarzenia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

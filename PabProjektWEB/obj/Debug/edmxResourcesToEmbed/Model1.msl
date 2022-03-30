@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="zadaniepabAModelStoreContainer" CdmEntityContainer="zadaniepabAEntities">
+    <EntitySetMapping Name="Drużyna">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Drużyna">
+        <MappingFragment StoreEntitySet="Drużyna">
+          <ScalarProperty Name="Drużyna_ID" ColumnName="Drużyna_ID" />
+          <ScalarProperty Name="Trener_ID" ColumnName="Trener_ID" />
+          <ScalarProperty Name="Drużyna1" ColumnName="Drużyna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entity_9">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Entity_9">
+        <MappingFragment StoreEntitySet="Entity_9">
+          <ScalarProperty Name="tabela_ID" ColumnName="tabela_ID" />
+          <ScalarProperty Name="Zawodnik_ID" ColumnName="Zawodnik_ID" />
+          <ScalarProperty Name="Zdarzenia_ID" ColumnName="Zdarzenia_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mecz">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Mecz">
+        <MappingFragment StoreEntitySet="Mecz">
+          <ScalarProperty Name="Wynik1" ColumnName="Wynik1" />
+          <ScalarProperty Name="Zdarzenia_ID" ColumnName="Zdarzenia_ID" />
+          <ScalarProperty Name="Mecz_ID" ColumnName="Mecz_ID" />
+          <ScalarProperty Name="Treminarz_ID" ColumnName="Treminarz_ID" />
+          <ScalarProperty Name="Drużyna_ID" ColumnName="Drużyna_ID" />
+          <ScalarProperty Name="Miejsca_ID" ColumnName="Miejsca_ID" />
+          <ScalarProperty Name="Dru_Drużyna_ID" ColumnName="Dru_Drużyna_ID" />
+          <ScalarProperty Name="Wynik" ColumnName="Wynik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Miejsca">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Miejsca">
+        <MappingFragment StoreEntitySet="Miejsca">
+          <ScalarProperty Name="Miejsca_ID" ColumnName="Miejsca_ID" />
+          <ScalarProperty Name="Miejscowość" ColumnName="Miejscowość" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Przynależność">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Przynależność">
+        <MappingFragment StoreEntitySet="Przynależność">
+          <ScalarProperty Name="Przy_ID" ColumnName="Przy_ID" />
+          <ScalarProperty Name="Drużyna_ID" ColumnName="Drużyna_ID" />
+          <ScalarProperty Name="Zawodnik_ID" ColumnName="Zawodnik_ID" />
+          <ScalarProperty Name="Od_kiedy" ColumnName="Od_kiedy" />
+          <ScalarProperty Name="Do_kiedy" ColumnName="Do_kiedy" />
+          <ScalarProperty Name="Pozycja" ColumnName="Pozycja" />
+          <ScalarProperty Name="Stawka" ColumnName="Stawka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terminarz">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Terminarz">
+        <MappingFragment StoreEntitySet="Terminarz">
+          <ScalarProperty Name="Treminarz_ID" ColumnName="Treminarz_ID" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trener">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Trener">
+        <MappingFragment StoreEntitySet="Trener">
+          <ScalarProperty Name="Trener_ID" ColumnName="Trener_ID" />
+          <ScalarProperty Name="Trener_Imię" ColumnName="Trener_Imię" />
+          <ScalarProperty Name="Trener_Nazwisko" ColumnName="Trener_Nazwisko" />
+          <ScalarProperty Name="Trener_Drużyna" ColumnName="Trener_Drużyna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zawodnik">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Zawodnik">
+        <MappingFragment StoreEntitySet="Zawodnik">
+          <ScalarProperty Name="Zawodnik_ID" ColumnName="Zawodnik_ID" />
+          <ScalarProperty Name="Zawodnik_Imię" ColumnName="Zawodnik_Imię" />
+          <ScalarProperty Name="Zawodnik_Nazwisko" ColumnName="Zawodnik_Nazwisko" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zdarzenia">
+      <EntityTypeMapping TypeName="zadaniepabAModel.Zdarzenia">
+        <MappingFragment StoreEntitySet="Zdarzenia">
+          <ScalarProperty Name="Zdarzenia_ID" ColumnName="Zdarzenia_ID" />
+          <ScalarProperty Name="Mecz_ID" ColumnName="Mecz_ID" />
+          <ScalarProperty Name="Wejścia_na_boisko" ColumnName="Wejścia_na_boisko" />
+          <ScalarProperty Name="Zejścia_z_boiska" ColumnName="Zejścia_z_boiska" />
+          <ScalarProperty Name="Rzut_rożny" ColumnName="Rzut_rożny" />
+          <ScalarProperty Name="Strzelone_bramki" ColumnName="Strzelone_bramki" />
+          <ScalarProperty Name="Kary" ColumnName="Kary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

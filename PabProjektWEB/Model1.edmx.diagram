@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0a6fe7f564384d83bbb325b94eb4668c" Name="Diagram1">
+        <EntityTypeShape EntityType="zadaniepabAModel.Drużyna" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="zadaniepabAModel.Entity_9" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="zadaniepabAModel.Mecz" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="zadaniepabAModel.Miejsca" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="zadaniepabAModel.Przynależność" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="zadaniepabAModel.Terminarz" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="zadaniepabAModel.Trener" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="zadaniepabAModel.Zawodnik" Width="1.5" PointX="7.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="zadaniepabAModel.Zdarzenia" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="zadaniepabAModel.FK_DRUŻYNA_RELATIONS_TRENER" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_MECZ_GOSPODARZ_DRUŻYNA" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_MECZ_GOŚCIE_DRUŻYNA" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_PRZYNALE_RELATIONS_DRUŻYNA" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_ENTITY_9_RELATIONS_ZAWODNIK" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_ENTITY_9_RELATIONS_ZDARZENI" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_MECZ_RELATIONS_MIEJSCA" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_MECZ_RELATIONS_TERMINAR" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_ZDARZENI_RELATIONS_MECZ" ManuallyRouted="false" />
+        <AssociationConnector Association="zadaniepabAModel.FK_PRZYNALE_RELATIONS_ZAWODNIK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
